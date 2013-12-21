@@ -10,7 +10,7 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     dot: true,
-                    src: ['.tmp', 'dist/*', '!dist/.git*']
+                    src: ['.tmp', 'dist/*.js', '!dist/.git*']
                 }]
             }
         },
