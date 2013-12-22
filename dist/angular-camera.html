@@ -1,0 +1,17 @@
+<div class="ng-camera">
+	<p class="text-center">
+		<button ng-if="!cameraOn" type="button" class="btn btn-md btn-success" ng-click="start()">Turn Camera On</button>
+		<button ng-if="cameraOn" type="button" class="btn btn-md btn-danger" ng-click="stop()">Turn Camera Off</button>
+	</p>
+
+	<p ng-if="errorLoadingCamera">Failed to Load the Camera. Please make sure it is not being used by another device.</p>
+
+	<p ng-hide="cameraOn" class="text-center"><i ng-if="!cameraOn" class="fa fa-camera" style="font-size: 300px;"></i></p>
+	<p ng-show="cameraOn">
+		<video autoplay ng-src="{{videoStream}}" class="img-responsive" style="width: 100%"></video>
+		<canvas style="display:none;"></canvas>
+	</p>
+	<p class="text-center" ng-if="cameraOn">
+		<button type="button" class="btn btn-lg btn-success" ng-click="takePicture()">{{(captureMessage) ? captureMessage : 'Take Picture'}}</button>
+	</p>
+</div>
